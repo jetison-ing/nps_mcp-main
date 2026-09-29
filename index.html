@@ -159,7 +159,7 @@
 		const title = document.querySelector("#fact-title");
 		const text = document.querySelector("#fact-text");
 		const label = document.querySelector("#fact-label");
-		const location = document.querySelector("#fact-location");
+		const parkLocation = document.querySelector("#fact-location");
 		const buttons = [button];
 		const buttonMotion = [];
 
@@ -254,7 +254,7 @@
 			label.textContent = "";
 			title.textContent = "";
 			text.textContent = "";
-			location.textContent = "";
+			parkLocation.textContent = "";
 			image.hidden = true;
 			box.classList.add("is-visible");
 			x = Math.max(14, (window.innerWidth - box.offsetWidth) / 2);
@@ -270,7 +270,7 @@
 				label.textContent = park.designation || "A National Park Service site";
 				title.textContent = park.fullName || park.name || "A national park";
 				text.textContent = park.description || "This park is keeping its best stories for the trail.";
-				location.textContent = [park.states, park.parkCode?.toUpperCase()].filter(Boolean).join(" · ") || "National Park Service";
+				parkLocation.textContent = [park.states, park.parkCode?.toUpperCase()].filter(Boolean).join(" · ") || "National Park Service";
 
 				const photo = park.images?.[0];
 				if (photo?.url) {
