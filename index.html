@@ -4,17 +4,13 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="theme-color" content="#20492f">
-	<title>Park After Dark | National Parks, Unbuttoned</title>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+	<title>dont touch this</title>
 	<style>
 		:root {
 			color-scheme: light;
-			--ink: #183321;
 			--paper: #f4f2e7;
 			--leaf: #c4db76;
-			--line: rgba(24, 51, 33, .24);
+			--ink: #183321;
 		}
 
 		* { box-sizing: border-box; }
@@ -27,8 +23,7 @@
 			isolation: isolate;
 			color: var(--paper);
 			background: #20492f;
-			font-family: "DM Sans", sans-serif;
-			animation: green-shift 26s ease-in-out infinite alternate;
+			animation: green-shift 2.4s steps(1, end) infinite;
 		}
 
 		body::before, body::after {
@@ -53,80 +48,15 @@
 		}
 
 		@keyframes green-shift {
-			0% { background-color: #183f2d; }
-			35% { background-color: #376b3c; }
-			70% { background-color: #54794a; }
-			100% { background-color: #28573a; }
+			0%, 24% { background-color: #183f2d; }
+			25%, 49% { background-color: #376b3c; }
+			50%, 74% { background-color: #54794a; }
+			75%, 100% { background-color: #28573a; }
 		}
 
 		@keyframes light-drift {
 			from { background-position: 0% 30%; }
 			to { background-position: 100% 70%; }
-		}
-
-		.topbar {
-			position: fixed;
-			inset: 0 0 auto;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			padding: 24px 32px;
-			border-bottom: 1px solid rgba(244, 242, 231, .24);
-			font: 500 11px/1 "DM Mono", monospace;
-			letter-spacing: .08em;
-			text-transform: uppercase;
-		}
-
-		.brand { display: flex; align-items: center; gap: 10px; }
-		.brand-mark { width: 10px; height: 10px; background: var(--leaf); border-radius: 50%; }
-		.edition { opacity: .75; }
-
-		main {
-			position: fixed;
-			left: 9vw;
-			top: 35vh;
-			width: min(530px, 76vw);
-			pointer-events: none;
-		}
-
-		.eyebrow {
-			display: flex;
-			align-items: center;
-			gap: 11px;
-			margin: 0 0 20px;
-			color: var(--leaf);
-			font: 500 11px/1.4 "DM Mono", monospace;
-			letter-spacing: .08em;
-			text-transform: uppercase;
-		}
-
-		.eyebrow::before { width: 30px; height: 1px; background: currentColor; content: ""; }
-
-		h1 {
-			max-width: 540px;
-			margin: 0;
-			font: 500 76px/.96 "Fraunces", Georgia, serif;
-			letter-spacing: 0;
-		}
-
-		.intro {
-			max-width: 340px;
-			margin: 22px 0 0;
-			color: rgba(244, 242, 231, .82);
-			font-size: 14px;
-			line-height: 1.6;
-		}
-
-		.orbit-note {
-			position: fixed;
-			right: 32px;
-			bottom: 29px;
-			width: 195px;
-			padding-top: 12px;
-			border-top: 1px solid rgba(244, 242, 231, .38);
-			color: rgba(244, 242, 231, .72);
-			font: 11px/1.5 "DM Mono", monospace;
-			text-transform: uppercase;
 		}
 
 		.touch-button {
@@ -147,23 +77,13 @@
 			background: var(--leaf);
 			box-shadow: 5px 5px 0 rgba(16, 42, 26, .3);
 			cursor: pointer;
-			font: 500 12px "DM Mono", monospace;
-			letter-spacing: .04em;
-			animation: button-roam 38s ease-in-out infinite alternate;
+			font: 500 12px monospace;
 			transition: background .2s ease, box-shadow .2s ease, scale .2s ease;
 		}
 
 		.touch-button:hover { background: #d9e89f; box-shadow: 7px 7px 0 rgba(16, 42, 26, .25); scale: 1.03; }
 		.touch-button:focus-visible { outline: 3px solid var(--paper); outline-offset: 5px; }
 		.touch-button:disabled { cursor: wait; }
-		.touch-button .arrow { font-size: 18px; line-height: 1; }
-
-		@keyframes button-roam {
-			0% { transform: translate(6vw, 19vh) rotate(-2deg); }
-			30% { transform: translate(60vw, 25vh) rotate(1deg); }
-			65% { transform: translate(34vw, 67vh) rotate(-1deg); }
-			100% { transform: translate(calc(100vw - 250px), 43vh) rotate(2deg); }
-		}
 
 		.fact-box {
 			position: fixed;
@@ -196,61 +116,20 @@
 
 		.fact-content { padding: 17px 19px 19px; }
 
-		.fact-label {
-			display: flex;
-			align-items: center;
-			gap: 8px;
-			margin-bottom: 9px;
-			color: #526b3a;
-			font: 500 10px "DM Mono", monospace;
-			letter-spacing: .08em;
-			text-transform: uppercase;
-		}
-
-		.fact-label::before { width: 7px; height: 7px; border-radius: 50%; background: #91aa53; content: ""; }
-
 		.fact-title {
 			margin: 0 0 9px;
-			font: 600 24px/1.05 "Fraunces", Georgia, serif;
+			font: 600 24px/1.05 Georgia, serif;
 			letter-spacing: 0;
 		}
 
 		.fact-text { margin: 0; font-size: 13px; line-height: 1.55; }
 
-		.fact-footer {
-			display: flex;
-			justify-content: space-between;
-			gap: 14px;
-			margin-top: 15px;
-			padding-top: 10px;
-			border-top: 1px solid var(--line);
-			color: #526b3a;
-			font: 10px "DM Mono", monospace;
-			text-transform: uppercase;
-		}
-
 		@media (max-width: 600px) {
-			.topbar { padding: 19px 18px; }
-			.edition { font-size: 9px; }
-			main { top: 26vh; left: 8vw; width: 82vw; }
-			h1 { font-size: 46px; }
-			.intro { max-width: 270px; margin-top: 16px; font-size: 13px; }
-			.orbit-note { right: 18px; bottom: 18px; width: 150px; font-size: 9px; }
 			.touch-button { width: 205px; min-height: 58px; padding: 0 14px; font-size: 11px; }
 			.park-image { height: 112px; }
 			.fact-content { padding: 14px 16px 16px; }
 			.fact-title { font-size: 21px; }
 			.fact-text { font-size: 12px; }
-			@keyframes button-roam {
-				0% { transform: translate(6vw, 17vh) rotate(-2deg); }
-				30% { transform: translate(calc(100vw - 220px), 23vh) rotate(1deg); }
-				65% { transform: translate(8vw, 71vh) rotate(-1deg); }
-				100% { transform: translate(calc(100vw - 220px), 49vh) rotate(2deg); }
-			}
-		}
-
-		@media (min-width: 601px) and (max-width: 900px) {
-			h1 { font-size: 62px; }
 		}
 
 		@media (prefers-reduced-motion: reduce) {
@@ -259,32 +138,19 @@
 	</style>
 </head>
 <body>
-	<header class="topbar">
-		<div class="brand"><span class="brand-mark" aria-hidden="true"></span>Park After Dark</div>
-		<div class="edition">A field trip in one click / No. 001</div>
-	</header>
-
-	<main>
-		<p class="eyebrow">A field note from somewhere wild</p>
-		<h1>America is bigger than your next screen.</h1>
-		<p class="intro">A small window into the places that still know how to surprise us.</p>
-	</main>
-
 	<button class="touch-button" id="fact-button" type="button">
-		<span>DONT TOUCH THIS</span><span class="arrow" aria-hidden="true">↗</span>
+		dont touch this
 	</button>
 
 	<aside class="fact-box" id="fact-box" aria-live="polite" aria-atomic="true">
 		<img class="park-image" id="park-image" alt="" hidden>
 		<div class="fact-content">
-			<div class="fact-label" id="fact-label">Incoming field note</div>
-			<h2 class="fact-title" id="fact-title">The wild is calling</h2>
-			<p class="fact-text" id="fact-text">Finding a park worth getting lost in...</p>
-			<div class="fact-footer"><span id="fact-location">National Park Service</span><span>Field note</span></div>
+			<div class="fact-label" id="fact-label"></div>
+			<h2 class="fact-title" id="fact-title"></h2>
+			<p class="fact-text" id="fact-text"></p>
+			<div class="fact-footer"><span id="fact-location"></span></div>
 		</div>
 	</aside>
-
-	<div class="orbit-note">One button. One park. A different little escape every time.</div>
 
 	<script>
 		const button = document.querySelector("#fact-button");
@@ -294,6 +160,59 @@
 		const text = document.querySelector("#fact-text");
 		const label = document.querySelector("#fact-label");
 		const location = document.querySelector("#fact-location");
+		const buttons = [button];
+		const buttonMotion = [];
+
+		for (let index = 0; index < 9; index += 1) {
+			const duplicate = button.cloneNode(true);
+			duplicate.removeAttribute("id");
+			document.body.append(duplicate);
+			buttons.push(duplicate);
+		}
+
+		for (const movingButton of buttons) {
+			buttonMotion.push({
+				button: movingButton,
+				x: Math.random() * Math.max(0, window.innerWidth - movingButton.offsetWidth),
+				y: Math.random() * Math.max(0, window.innerHeight - movingButton.offsetHeight),
+				dx: (260 + Math.random() * 300) * (Math.random() < .5 ? -1 : 1),
+				dy: (260 + Math.random() * 300) * (Math.random() < .5 ? -1 : 1),
+				angle: 0
+			});
+		}
+
+		let previousButtonFrame = 0;
+
+		function moveButtons(timestamp) {
+			const elapsed = Math.min(timestamp - (previousButtonFrame || timestamp), 40) / 1000;
+			previousButtonFrame = timestamp;
+
+			for (const motion of buttonMotion) {
+				const maxX = Math.max(0, window.innerWidth - motion.button.offsetWidth);
+				const maxY = Math.max(0, window.innerHeight - motion.button.offsetHeight);
+				motion.x += motion.dx * elapsed;
+				motion.y += motion.dy * elapsed;
+
+				if (motion.x <= 0 || motion.x >= maxX) {
+					motion.dx *= -1;
+					motion.angle = Math.random() * 12 - 6;
+				}
+				if (motion.y <= 0 || motion.y >= maxY) {
+					motion.dy *= -1;
+					motion.angle = Math.random() * 12 - 6;
+				}
+
+				motion.x = Math.max(0, Math.min(maxX, motion.x));
+				motion.y = Math.max(0, Math.min(maxY, motion.y));
+				motion.button.style.left = `${motion.x}px`;
+				motion.button.style.top = `${motion.y}px`;
+				motion.button.style.rotate = `${motion.angle}deg`;
+			}
+
+			requestAnimationFrame(moveButtons);
+		}
+
+		requestAnimationFrame(moveButtons);
 
 		let x = 40;
 		let y = 100;
@@ -330,12 +249,12 @@
 			y = Math.min(y, window.innerHeight - box.offsetHeight - 14);
 		});
 
-		button.addEventListener("click", async () => {
-			button.disabled = true;
-			label.textContent = "Incoming field note";
-			title.textContent = "The wild is calling";
-			text.textContent = "Finding a park worth getting lost in...";
-			location.textContent = "National Park Service";
+		for (const movingButton of buttons) movingButton.addEventListener("click", async () => {
+			buttons.forEach((item) => { item.disabled = true; });
+			label.textContent = "";
+			title.textContent = "";
+			text.textContent = "";
+			location.textContent = "";
 			image.hidden = true;
 			box.classList.add("is-visible");
 			x = Math.max(14, (window.innerWidth - box.offsetWidth) / 2);
@@ -344,7 +263,7 @@
 			box.style.top = `${y}px`;
 
 			try {
-				const response = await fetch("/api/random-park");
+				const response = await fetch("/api/random-park", { cache: "no-store" });
 				const park = await response.json();
 				if (!response.ok) throw new Error(park.error || "The park radio is quiet. Try again.");
 
@@ -360,11 +279,10 @@
 					image.hidden = false;
 				}
 			} catch (error) {
-				label.textContent = "Field note unavailable";
-				title.textContent = "A little signal trouble";
-				text.textContent = error.message;
+				console.error("Could not load a random park:", error);
+				title.textContent = "dont touch this";
 			} finally {
-				button.disabled = false;
+				buttons.forEach((item) => { item.disabled = false; });
 			}
 		});
 	</script>
