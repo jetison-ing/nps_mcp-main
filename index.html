@@ -22,8 +22,12 @@
 			overflow: hidden;
 			isolation: isolate;
 			color: var(--paper);
-			background: #20492f;
-			animation: green-shift 2.4s steps(1, end) infinite;
+			background-color: #20492f;
+			background-image: url("bauhaus1.jpg");
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			animation: bauhaus-flash 14s steps(1, end) infinite;
 		}
 
 		body::before, body::after {
@@ -47,11 +51,19 @@
 			animation: light-drift 22s linear infinite alternate;
 		}
 
-		@keyframes green-shift {
-			0%, 24% { background-color: #183f2d; }
-			25%, 49% { background-color: #376b3c; }
-			50%, 74% { background-color: #54794a; }
-			75%, 100% { background-color: #28573a; }
+		@keyframes bauhaus-flash {
+			0%, 14.28% { background-image: url("bauhaus1.jpg"); }
+			14.29%, 28.56% { background-image: url("bauhaus2.jpg"); }
+			28.57%, 42.84% { background-image: url("bauhaus3.jpg"); }
+			42.85%, 57.13% { background-image: url("bauhaus4.jpg"); }
+			57.14%, 71.41% { background-image: url("bauhaus5.avif"); }
+			71.42%, 85.70% { background-image: url("bauhaus6.webp"); }
+			85.71%, 100% { background-image: url("bauhaus7.jpg"); }
+		}
+
+		@keyframes button-breathe {
+			from { scale: .88; }
+			to { scale: 1.12; }
 		}
 
 		@keyframes light-drift {
@@ -71,17 +83,18 @@
 			justify-content: space-between;
 			gap: 16px;
 			padding: 0 19px;
-			border: 1px solid var(--paper);
+			border: 1px solid var(--button-neon);
 			border-radius: 2px;
 			color: var(--ink);
-			background: var(--leaf);
-			box-shadow: 5px 5px 0 rgba(16, 42, 26, .3);
+			background: var(--button-neon);
+			box-shadow: 0 0 15px var(--button-neon), 5px 5px 0 rgba(16, 42, 26, .3);
 			cursor: pointer;
 			font: 500 12px monospace;
-			transition: background .2s ease, box-shadow .2s ease, scale .2s ease;
+			animation: button-breathe 7s ease-in-out infinite alternate;
+			transition: box-shadow .2s ease;
 		}
 
-		.touch-button:hover { background: #d9e89f; box-shadow: 7px 7px 0 rgba(16, 42, 26, .25); scale: 1.03; }
+		.touch-button:hover { box-shadow: 0 0 23px var(--button-neon), 7px 7px 0 rgba(16, 42, 26, .25); }
 		.touch-button:focus-visible { outline: 3px solid var(--paper); outline-offset: 5px; }
 		.touch-button:disabled { cursor: wait; }
 
@@ -162,6 +175,7 @@
 		const parkLocation = document.querySelector("#fact-location");
 		const buttons = [button];
 		const buttonMotion = [];
+		const neonColors = ["#ff3158", "#ff8a00", "#f3ff00", "#00f58a", "#00e5ff", "#3478ff", "#d84bff", "#ff3bd4", "#b6ff00", "#ff4d00"];
 
 		for (let index = 0; index < 9; index += 1) {
 			const duplicate = button.cloneNode(true);
@@ -170,7 +184,9 @@
 			buttons.push(duplicate);
 		}
 
-		for (const movingButton of buttons) {
+		for (const [index, movingButton] of buttons.entries()) {
+			movingButton.style.setProperty("--button-neon", neonColors[index % neonColors.length]);
+			movingButton.style.animationDelay = `${-index * .55}s`;
 			buttonMotion.push({
 				button: movingButton,
 				x: Math.random() * Math.max(0, window.innerWidth - movingButton.offsetWidth),
