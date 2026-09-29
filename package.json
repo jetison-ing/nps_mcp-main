@@ -8,7 +8,8 @@
     "nps": "./build/index.js"
   },
   "scripts": {
-    "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\""
+    "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
+    "start:web": "node web-server.js"
   },
   "files": [
     "build"

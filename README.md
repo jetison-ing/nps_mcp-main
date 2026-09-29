@@ -42,6 +42,14 @@ npm run build
 node ./build/server.js
 ```
 
+To run the National Parks website, make sure `api.env` in the repository root contains your `API_KEY`, then start the local web server:
+
+```sh
+npm run start:web
+```
+
+Open `http://localhost:4173` in your browser. The API key stays on the server and is not sent to the browser.
+
 Using Claude Desktop:
 
 1. Add this MCP Server to the `claude_desktop_config.json`

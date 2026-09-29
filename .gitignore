@@ -5,4 +5,5 @@ node_modules/
 build/
 
 # Ignore environment files
-.env 
+.env
+api.env
